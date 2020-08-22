@@ -10,14 +10,14 @@ Para permitir al usuario modificar los parámetros de los efectos, el FV-1 dispo
 
 En el diseño de Spinnaker hemos querido dotar al FV-1 de algo más de flexibilidad, así que le hemos añadido algunas cosillas más:
 
-    Un CI para el control digital del volumen de entrada al FV-1, del volumen de la salida del FV-1, y del volumen de la mezcla de ambos (Dry&Wet). Esto lo conseguimos con un PT2258, que también se puede controlar mediante I2C.
-    Más capacidad de memoria externa, utilizando un conjunto de 8 memorias controladas por un PCF8574 (que se gestiona también por I2C) de forma que sólo una de ellas esté activa para el FV-1.
-    Un MCP4728 (conversor DAC controlado por I2C) para sustituir a los tres potenciómetros de usuario.
+*Un CI para el control digital del volumen de entrada al FV-1, del volumen de la salida del FV-1, y del volumen de la mezcla de ambos (Dry&Wet). Esto lo conseguimos con un PT2258, que también se puede controlar mediante I2C.
+*Más capacidad de memoria externa, utilizando un conjunto de 8 memorias controladas por un PCF8574 (que se gestiona también por I2C) de forma que sólo una de ellas esté activa para el FV-1.
+*Un MCP4728 (conversor DAC controlado por I2C) para sustituir a los tres potenciómetros de usuario.
 
 La intención de todos estos extras es:
 
-    Disponer de más memoria externa para más efectos (esto parece obvio).
-    Que los parámetros de los efectos se puedan establecer desde un micro externo vía I2C. De esta forma se pueden guardar los ajustes deseados para cada efecto en una memoria, sin tener que tocar los potenciómetros al cambiar de efecto.
-    Igualmente, para cada efecto queremos poder controlar externamente (y poder guardarlo en una memoria, claro) los niveles de volumen que queremos a la entrada y a la salida.
+*Disponer de más memoria externa para más efectos (esto parece obvio).
+*Que los parámetros de los efectos se puedan establecer desde un micro externo vía I2C. De esta forma se pueden guardar los ajustes deseados para cada efecto en una memoria, sin tener que tocar los potenciómetros al cambiar de efecto.
+*Igualmente, para cada efecto queremos poder controlar externamente (y poder guardarlo en una memoria, claro) los niveles de volumen que queremos a la entrada y a la salida.
 
 En el diseño actual del Spinnaker solamente hemos contemplado la parte de tratamiento de la señal. La parte de control e interacción con el usuario todavía no se ha abordado, y su diseño queda completamente abierto. En Spinnaker dispondremos de un conector con las señales necesarias para controlar al FV-1 y a los demás integrados, para que cada uno pueda diseñar esa parte a su gusto (un Arduino, un ESP, un STM32, lo que cada uno quiera usar). 
